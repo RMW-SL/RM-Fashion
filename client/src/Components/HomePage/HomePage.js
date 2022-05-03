@@ -31,7 +31,7 @@ const HomePage = () => {
         </Grid>
       </div>
 
-      <Divider vertical>Or </Divider>
+      <Divider vertical>Or |</Divider>
     </Segment>
   );
 };
