@@ -1,9 +1,19 @@
 import React from 'react';
+import {AppBar, Box, Container, Grid, IconButton, Toolbar, Typography} from "@mui/material";
+
 
 const FooterLayout=()=>{
-    return (<div>
-        Footer
-    </div>);
+
+
+    return (
+
+        <Box>
+            <Toolbar style={{backgroundColor:"#000000"}}>
+
+            </Toolbar>
+        </Box>
+
+            );
 
 }
 
