@@ -5,9 +5,7 @@ import {AppBar, Box, Container, Grid, IconButton, Toolbar, Typography} from "@mu
 const FooterLayout=()=>{
 
 
-    return (
-
-        <Box>
+    return (<Box>
             <Toolbar style={{backgroundColor:"#000000"}}>
 
             </Toolbar>
