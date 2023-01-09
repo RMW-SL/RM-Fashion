@@ -8,19 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import repository.UserRepository;
 
 @SpringBootApplication
-public class SpringbootBackendApplication  implements CommandLineRunner {
+public class SpringbootBackendApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootBackendApplication.class, args);
     }
 
-    @Autowired(required = false)
-    private UserRepository userRepository;
 
-    @Override
-    public void run(String...args) throws Exception {
-        this.userRepository.save(new User("Ramesh", "test", "ramesh@gmail.com"));
-        this.userRepository.save(new User("Tom", "Cruise", "tom@gmail.com"));
-        this.userRepository.save(new User("Tony", "Stark", "tony@gmail.com"));
-    }
 }
