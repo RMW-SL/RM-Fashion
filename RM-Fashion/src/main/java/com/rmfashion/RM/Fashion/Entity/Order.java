@@ -6,17 +6,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Order")
+@Table(name = "COrder")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Order_ID")
     private long orderId;
-    @Column(name = "Customer_ID")
-    private long customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "Customer_ID")
+    private Customer customer;
+
+    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL)
+    private Shipment shipment;
+    @ManyToMany(mappedBy = "orders")
+    private List<Product> products=new ArrayList<>();
+
 }

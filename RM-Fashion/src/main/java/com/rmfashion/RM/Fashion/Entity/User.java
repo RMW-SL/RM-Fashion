@@ -35,8 +35,7 @@ public class User {
     @Column(name = "Token")
     private String token;
 
-    @OneToOne
-    @JoinColumn(name = "Customer_ID")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Customer customer;
 
 

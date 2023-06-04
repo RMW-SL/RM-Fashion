@@ -17,8 +17,11 @@ public class Shipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ShipMent_ID")
     private long shipmentId;
-    @Column(name = "Order_ID")
-    private long orderId;
+
     @Column(name = "Delivery_Status")
     private String status;
+
+    @OneToOne
+    @JoinColumn(name = "Order_ID")
+    private Order order;
 }
