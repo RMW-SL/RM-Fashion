@@ -11,8 +11,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name ="User")
+@Entity(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,5 +38,6 @@ public class User {
     private Customer customer;
 
 
-
+    public User(String userRole, String email, String firstName, String lastName, int phoneNumber, String address, String password, String token) {
+    }
 }
