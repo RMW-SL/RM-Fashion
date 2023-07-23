@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
+import MainMenu from "../MainMenu";
 const HomePage = () => {
   return (
     <div className="home-container">
@@ -22,7 +23,7 @@ const HomePage = () => {
       </div>
       <div>
         <div>
-          <h1>Main menu</h1>
+          <MainMenu />
         </div>
         <div>
           <h1>Cart</h1>
