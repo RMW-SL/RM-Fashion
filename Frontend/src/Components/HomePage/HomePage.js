@@ -1,19 +1,34 @@
 import React from "react";
-import HeaderLayout from "../common/HeaderLayout";
-import FooterLayout from "../common/FooterLayout";
-import RecipeReviewCard from "../products/men/shirts/Tshirt";
-
+import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import "./HomePage.css";
 const HomePage = () => {
   return (
-     <div>
-         <HeaderLayout/>
-       <div style={{height:"100vh"}}>
-           <RecipeReviewCard />
-       </div>
-
-         <FooterLayout/>
-     </div>
-
+    <div className="home-container">
+      <div className="home-nav">
+        <h1>Logo</h1>
+        <div>
+          <Link to="/login">
+            <Button colorScheme="blue" variant="outline">
+              Login
+            </Button>
+          </Link>
+          <Link to="/register">
+            <Button colorScheme="yellow" variant="outline">
+              Register
+            </Button>
+          </Link>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h1>Main menu</h1>
+        </div>
+        <div>
+          <h1>Cart</h1>
+        </div>
+      </div>
+    </div>
   );
 };
 
