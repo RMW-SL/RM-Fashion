@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import MainMenu from "../MainMenu";
+import Cart from "../Cart/Cart";
 const HomePage = () => {
+  const [cartItems, setCartItems] = useState([]);
   return (
     <div className="home-container">
       <div className="home-nav">
@@ -21,13 +23,9 @@ const HomePage = () => {
           </Link>
         </div>
       </div>
-      <div>
-        <div>
-          <MainMenu />
-        </div>
-        <div>
-          <h1>Cart</h1>
-        </div>
+      <div className="home-inner-container">
+        <MainMenu cartItems={cartItems} setCartItems={setCartItems} />
+        <Cart cartItems={cartItems} setCartItems={setCartItems} />
       </div>
     </div>
   );
