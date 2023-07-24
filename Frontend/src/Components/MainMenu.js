@@ -3,8 +3,8 @@ import axios from "axios";
 import { api } from "../config";
 import MenuItems from "./MenuItems";
 import "./MainMenu.css";
-
-const MainMenu = () => {
+import toast from "react-hot-toast";
+const MainMenu = ({ cartItems, setCartItems }) => {
   const [items, setItems] = useState([]);
   useEffect(() => {
     const fetchItems = async () => {
@@ -15,8 +15,27 @@ const MainMenu = () => {
     fetchItems();
   }, []);
 
-  const handleClick = (item) => {
-    console.log("Clicked", item);
+  const handleClick = (clickedItem) => {
+    const itemFound = cartItems.find((item) => {
+      if (item.id === clickedItem.id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if (itemFound) {
+      toast.error("Item already added");
+      return;
+    }
+
+    const newCartItems = [...cartItems];
+    const newItem = {
+      ...clickedItem,
+      qty: 1,
+    };
+    newCartItems.push(newItem);
+    setCartItems(newCartItems);
   };
   return (
     <div className="main-menu-container">
