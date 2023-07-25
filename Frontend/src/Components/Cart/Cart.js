@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
 import { Button } from "@chakra-ui/react";
+import axios from "axios";
+import { api } from "../../config";
+import { toast } from "react-hot-toast";
 const Cart = ({ cartItems, setCartItems }) => {
   let total = 0;
 
@@ -52,6 +55,17 @@ const Cart = ({ cartItems, setCartItems }) => {
     setCartItems(newCartItem);
   };
 
+  const placeHolder = async () => {
+    try {
+      await axios.post(`${api}/item/place-order`, { items: cartItems });
+      toast.success("Order Placed Successfully");
+      setCartItems([]);
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
     <div>
       <h2>Your Order</h2>
@@ -74,7 +88,11 @@ const Cart = ({ cartItems, setCartItems }) => {
         <>
           <div className="total">Total: {total}</div>
 
-          <Button colorScheme="blue" className="place-order-button">
+          <Button
+            colorScheme="blue"
+            className="place-order-button"
+            onClick={placeHolder}
+          >
             Place Order
           </Button>
         </>
