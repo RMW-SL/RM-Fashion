@@ -22,10 +22,15 @@ const CartItem = ({ item, handleAdd, handleReduce, handleRemove }) => {
             size="sm"
             colorScheme="yellow"
             icon={<CloseIcon w={3} h={3} />}
+            onClick={handleReduce}
           />
         </div>
       </div>
-      <IconButton colorScheme="red" icon={<DeleteIcon />} />
+      <IconButton
+        colorScheme="red"
+        icon={<DeleteIcon />}
+        onClick={handleRemove}
+      />
     </div>
   );
 };
