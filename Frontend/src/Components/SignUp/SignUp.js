@@ -25,7 +25,7 @@ const SignUp = () => {
         password,
       });
 
-      toast.success("Registration Successful");
+      toast.success("Registration successfull");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
