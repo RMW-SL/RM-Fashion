@@ -29,7 +29,7 @@ const SignIn = () => {
       toast.success("Login successfull");
       setEmail("");
       setPassword("");
-      console.log("login done");
+      navigate("/admin");
     } catch (err) {
       console.log(err);
       toast.error("Invalid Credentials");
