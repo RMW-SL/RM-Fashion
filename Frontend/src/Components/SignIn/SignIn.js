@@ -26,7 +26,7 @@ const SignIn = () => {
       );
 
       setUser(result.data);
-      toast.success("Login successfull");
+      toast.success("Login successful");
       setEmail("");
       setPassword("");
       navigate("/admin");
