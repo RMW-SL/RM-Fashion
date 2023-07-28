@@ -6,13 +6,18 @@ import "./MainMenu.css";
 import toast from "react-hot-toast";
 const MainMenu = ({ cartItems, setCartItems }) => {
   const [items, setItems] = useState([]);
-  useEffect(() => {
-    const fetchItems = async () => {
-      const result = await axios.get(`${api}/item/all`);
-      setItems(result.data);
-    };
+  const mountRef = useRef(true);
 
-    fetchItems();
+  useEffect(() => {
+    if (mountRef.current) {
+      mountRef.current = false;
+      const fetchItems = async () => {
+        const result = await axios.get(`${api}/item/all`);
+        setItems(result.data);
+      };
+
+      fetchItems();
+    }
   }, []);
 
   const handleClick = (clickedItem) => {
